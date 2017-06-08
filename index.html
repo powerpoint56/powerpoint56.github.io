@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>powerpoint56</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="main">
+	<a href="https://github.com/powerpoint56"><h2 class="title">powerpoint56</h2></a>
+	<div class="repos"></div>
+</div>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.addEventListener("load", function() {
+	if (xhr.readyState !== xhr.DONE || xhr.status !== 200) {
+		return console.error("error connecting");
+	}
+	var repos = JSON.parse(this.responseText);
+	var reposEl = document.querySelector(".repos");
+	var color = 0;
+	for (var i = 0; i < repos.length; ++i) {
+		var repo = repos[i];
+		
+		var div = document.createElement("div");
+		div.className = "repo";
+		
+		var a = document.createElement("a");
+		a.href = repo["html_url"];
+		var title = document.createElement("h3");
+		title.textContent = repo.name;
+		a.appendChild(title);
+		a.style.color = "hsl(" + color + ", 91%, 67%)";
+		
+		var desc = document.createElement("p");
+		desc.textContent = repo.description;
+		
+		var language = document.createElement("p");
+		language.textContent = repo.language;
+		
+		div.appendChild(a);
+		div.appendChild(desc);
+		div.appendChild(language);
+		
+		reposEl.appendChild(div);
+		
+		color += 40;
+	}
+});
+xhr.open("GET", "https://api.github.com/users/powerpoint56/repos");
+xhr.send();
+</script>
+</body>
+</html>
