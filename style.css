@@ -48,11 +48,11 @@ a {
 }
 
 .repo:nth-child(odd) {
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .repo:nth-child(even) {
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 .repo {

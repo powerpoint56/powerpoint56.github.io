@@ -37,12 +37,13 @@ xhr.addEventListener("load", function() {
 		var desc = document.createElement("p");
 		desc.textContent = repo.description;
 		
-		var language = document.createElement("p");
-		language.textContent = repo.language;
+		var more = document.createElement("p");
+		var created = new Date(repo["created_at"]);
+		more.textContent = repo.language + " - " + created.toLocaleDateString();
 		
 		div.appendChild(a);
 		div.appendChild(desc);
-		div.appendChild(language);
+		div.appendChild(more);
 		
 		reposEl.appendChild(div);
 		
