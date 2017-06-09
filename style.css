@@ -23,6 +23,13 @@ a {
   margin: 8px;
 }
 
+.pages {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @keyframes blink {
   from {
     opacity: 0;
@@ -61,5 +68,5 @@ a {
 }
 
 .repo p {
-  color: #ddd;
+  color: #eee;
 }
