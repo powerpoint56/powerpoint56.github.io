@@ -28,6 +28,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 @keyframes blink {
@@ -69,4 +70,16 @@ a {
 
 .repo p {
   color: #eee;
+}
+
+#french-warning {
+  position: absolute;
+  top: 100%;
+  margin: 10px;
+  text-align: center;
+  transition: .3s all;
+}
+
+.french:not(:hover) ~ #french-warning {
+  opacity: 0;
 }
